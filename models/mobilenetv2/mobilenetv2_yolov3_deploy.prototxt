@@ -1,35 +1,15 @@
 name: "MobileNet-YOLO"
 layer {
   name: "data"
-  type: "AnnotatedData"
+  type: "Input"
   top: "data"
-  top: "label"
-  include {
-    phase: TEST
-  }
-  transform_param {
-    scale: 0.007843
-    mean_value: 127.5
-    mean_value: 127.5
-    mean_value: 127.5
-	force_color: true
-    resize_param {
-      prob: 1.0
-      resize_mode: FIT_LARGE_SIZE_AND_PAD
-      height: 416
-      width: 416
-      interp_mode: LINEAR
+  input_param {
+    shape {
+      dim: 1
+      dim: 3
+      dim: 320
+      dim: 320
     }
-  }
-  data_param {
-    source: "examples/coco/coco_minival_lmdb"
-    batch_size: 1
-    backend: LMDB
-  }
-  annotated_data_param {
-    batch_sampler {
-    }
-    label_map_file:  "data/coco/labelmap_coco.prototxt"
   }
 }
 
@@ -164,7 +144,7 @@ layer {
 }
 layer {
   name: "conv2_1/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv2_1/expand"
   top: "conv2_1/dwise"
   param {
@@ -350,7 +330,7 @@ layer {
 }
 layer {
   name: "conv2_2/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv2_2/expand"
   top: "conv2_2/dwise"
   param {
@@ -537,7 +517,7 @@ layer {
 }
 layer {
   name: "conv3_1/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv3_1/expand"
   top: "conv3_1/dwise"
   param {
@@ -730,7 +710,7 @@ layer {
 }
 layer {
   name: "conv3_2/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv3_2/expand"
   top: "conv3_2/dwise"
   param {
@@ -917,7 +897,7 @@ layer {
 }
 layer {
   name: "conv4_1/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv4_1/expand"
   top: "conv4_1/dwise"
   param {
@@ -1110,7 +1090,7 @@ layer {
 }
 layer {
   name: "conv4_2/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv4_2/expand"
   top: "conv4_2/dwise"
   param {
@@ -1303,7 +1283,7 @@ layer {
 }
 layer {
   name: "conv4_3/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv4_3/expand"
   top: "conv4_3/dwise"
   param {
@@ -1489,7 +1469,7 @@ layer {
 }
 layer {
   name: "conv4_4/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv4_4/expand"
   top: "conv4_4/dwise"
   param {
@@ -1682,7 +1662,7 @@ layer {
 }
 layer {
   name: "conv4_5/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv4_5/expand"
   top: "conv4_5/dwise"
   param {
@@ -1875,7 +1855,7 @@ layer {
 }
 layer {
   name: "conv4_6/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv4_6/expand"
   top: "conv4_6/dwise"
   param {
@@ -2068,7 +2048,7 @@ layer {
 }
 layer {
   name: "conv4_7/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv4_7/expand"
   top: "conv4_7/dwise"
   param {
@@ -2255,7 +2235,7 @@ layer {
 }
 layer {
   name: "conv5_1/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv5_1/expand"
   top: "conv5_1/dwise"
   param {
@@ -2448,7 +2428,7 @@ layer {
 }
 layer {
   name: "conv5_2/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv5_2/expand"
   top: "conv5_2/dwise"
   param {
@@ -2641,7 +2621,7 @@ layer {
 }
 layer {
   name: "conv5_3/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv5_3/expand"
   top: "conv5_3/dwise"
   param {
@@ -2828,7 +2808,7 @@ layer {
 }
 layer {
   name: "conv6_1/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv6_1/expand"
   top: "conv6_1/dwise"
   param {
@@ -3021,7 +3001,7 @@ layer {
 }
 layer {
   name: "conv6_2/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv6_2/expand"
   top: "conv6_2/dwise"
   param {
@@ -3214,7 +3194,7 @@ layer {
 }
 layer {
   name: "conv6_3/dwise"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv6_3/expand"
   top: "conv6_3/dwise"
   param {
@@ -3401,7 +3381,7 @@ layer {
 
 layer {
   name: "conv15/dw"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv6_4"
   top: "conv15/dw"
   param {
@@ -3563,7 +3543,7 @@ layer {
 }
 layer {
   name: "conv16/dw"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "maxpool"
   top: "conv16/dw"
   param {
@@ -3696,7 +3676,7 @@ layer {
 }
 layer {
   name: "conv17/dw"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "block_5_2"
   top: "conv17/dw"
   param {
@@ -3837,7 +3817,7 @@ layer {
 
 layer {
   name: "conv18/dw"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv17/sum"
   top: "conv18/dw"
   param {
@@ -4002,7 +3982,7 @@ layer {
 }
 layer {
   name: "conv19/dw"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "maxpool2"
   top: "conv19/dw"
   param {
@@ -4135,7 +4115,7 @@ layer {
 }
 layer {
   name: "conv20/dw"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "block_4_6"
   top: "conv20/dw"
   param {
@@ -4275,7 +4255,7 @@ layer {
 }
 layer {
   name: "conv21/dw"
-  type: "DepthwiseConvolution"
+  type: "Convolution"
   bottom: "conv20/sum"
   top: "conv21/dw"
   param {
@@ -4533,145 +4513,5 @@ layer {
     anchors_scale:16
 	anchors_scale:8
     mask_group_num:3
-  }
-}
-layer {
-  name: "detection_eval_50"
-  type: "DetectionEvaluate"
-  bottom: "detection_out"
-  bottom: "label"
-  top: "detection_eval_50"
-
-  detection_evaluate_param {
-    num_classes: 81
-    background_label_id: 0
-    overlap_threshold: 0.5
-    evaluate_difficult_gt: false
-  }
-}
-layer {
-  name: "detection_eval_55"
-  type: "DetectionEvaluate"
-  bottom: "detection_out"
-  bottom: "label"
-  top: "detection_eval_55"
-
-  detection_evaluate_param {
-    num_classes: 81
-    background_label_id: 0
-    overlap_threshold: 0.55
-    evaluate_difficult_gt: false
-  }
-}
-layer {
-  name: "detection_eval_60"
-  type: "DetectionEvaluate"
-  bottom: "detection_out"
-  bottom: "label"
-  top: "detection_eval_60"
-
-  detection_evaluate_param {
-    num_classes: 81
-    background_label_id: 0
-    overlap_threshold: 0.60
-    evaluate_difficult_gt: false
-  }
-}
-layer {
-  name: "detection_eval_65"
-  type: "DetectionEvaluate"
-  bottom: "detection_out"
-  bottom: "label"
-  top: "detection_eval_65"
-
-  detection_evaluate_param {
-    num_classes: 81
-    background_label_id: 0
-    overlap_threshold: 0.65
-    evaluate_difficult_gt: false
-  }
-}
-layer {
-  name: "detection_eval_70"
-  type: "DetectionEvaluate"
-  bottom: "detection_out"
-  bottom: "label"
-  top: "detection_eval_70"
-
-  detection_evaluate_param {
-    num_classes: 81
-    background_label_id: 0
-    overlap_threshold: 0.70
-    evaluate_difficult_gt: false
-  }
-}
-layer {
-  name: "detection_eval_75"
-  type: "DetectionEvaluate"
-  bottom: "detection_out"
-  bottom: "label"
-  top: "detection_eval_75"
-
-  detection_evaluate_param {
-    num_classes: 81
-    background_label_id: 0
-    overlap_threshold: 0.75
-    evaluate_difficult_gt: false
-  }
-}
-layer {
-  name: "detection_eval_80"
-  type: "DetectionEvaluate"
-  bottom: "detection_out"
-  bottom: "label"
-  top: "detection_eval_80"
-
-  detection_evaluate_param {
-    num_classes: 81
-    background_label_id: 0
-    overlap_threshold: 0.80
-    evaluate_difficult_gt: false
-  }
-}
-layer {
-  name: "detection_eval_85"
-  type: "DetectionEvaluate"
-  bottom: "detection_out"
-  bottom: "label"
-  top: "detection_eval_85"
-
-  detection_evaluate_param {
-    num_classes: 81
-    background_label_id: 0
-    overlap_threshold: 0.85
-    evaluate_difficult_gt: false
-  }
-}
-layer {
-  name: "detection_eval_90"
-  type: "DetectionEvaluate"
-  bottom: "detection_out"
-  bottom: "label"
-  top: "detection_eval_90"
-
-  detection_evaluate_param {
-    num_classes: 81
-    background_label_id: 0
-    overlap_threshold: 0.90
-    evaluate_difficult_gt: false
-  }
-}
-layer {
-  name: "detection_eval_95"
-  type: "DetectionEvaluate"
-  bottom: "detection_out"
-  bottom: "label"
-  top: "detection_eval_95"
-
-  detection_evaluate_param {
-    num_classes: 81
-    background_label_id: 0
-    overlap_threshold: 0.95
-    evaluate_difficult_gt: false
   }
 }
