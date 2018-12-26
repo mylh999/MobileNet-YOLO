@@ -9,7 +9,7 @@ lr_policy: "multistep"
 gamma: 0.5
 weight_decay: 0.00005
 snapshot: 1000
-snapshot_prefix: "models/yolov3_coco/mobilenetv2_yolov3_deploy"
+snapshot_prefix: "models/mobilenetv2/mobilenetv2_yolov3_deploy"
 solver_mode: GPU
 debug_info: false
 snapshot_after_train: true

@@ -47,6 +47,7 @@ Network|IOU 0.5:0.95|IOU 0.5|IOU 0.75|Weight size|Resolution|NetScope|Resize Mod
 [MobileNet-YOLOv3-Lite](models/yolov3_coco/)|19.9|35.5|19.6|[22.0 mb](https://drive.google.com/file/d/1rruY8BtS8WVdKPwU0LIT_6FyTnVxvHQl/view?usp=sharing)|320|[graph](http://ethereon.github.io/netscope/#/gist/110f5f5a2edad80c0c9074c7a532347b)|WARP
 [MobileNet-YOLOv3-Lite](models/yolov3_coco/)|21.5|38.9|21.2|[22.0 mb](https://drive.google.com/file/d/1rruY8BtS8WVdKPwU0LIT_6FyTnVxvHQl/view?usp=sharing)|416|[graph](http://ethereon.github.io/netscope/#/gist/110f5f5a2edad80c0c9074c7a532347b)|WARP
 [MobileNet-YOLOv3](models/yolov3_coco/)|22.7|40.2|22.6|[22.5 mb](https://drive.google.com/file/d/1tVdLzBA5T_HjDQkJv2ldr99X-T_s5UMn/view?usp=sharing)|416|[graph](http://ethereon.github.io/netscope/#/gist/ef69b621d69703be0327836ec9708634)|LetterBox
+[MobileNetv2-YOLOv3](models/mobilenetv2/)||||22.0 mb|416|[graph](http://ethereon.github.io/netscope/#/gist/e04e2722e0bfc930a6312dbefa06280c)|LetterBox
 YOLOv3-Tiny||33.1||33.8 mb|416
 
 * (*) testdev-2015 server was closed , here use coco 2014 minival
