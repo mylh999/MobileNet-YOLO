@@ -6,8 +6,8 @@ A caffe implementation of MobileNet-YOLO detection network , first train on COCO
 
 Network|mAP|Resolution|Download|Netron|Inference time (GTX 1080)|Inference time (i5-4440)
 :---:|:---:|:---:|:---:|:---:|:---:|:---:
-MobileNet-YOLOv3-Lite|74.6|320|[caffemodel](models/yolov3)|[graph](http://lutzroeder.github.io/netron/?gist=8f218ac764fd14c74c5eac1549a088af)|6 ms|150 ms
-MobileNet-YOLOv3-Lite|76.3|416|[caffemodel](models/yolov3)|[graph](http://lutzroeder.github.io/netron/?gist=8f218ac764fd14c74c5eac1549a088af)|11 ms|280 ms
+MobileNet-YOLOv3-Lite|74.6|320|[caffemodel](models/yolov3)|[graph](http://lutzroeder.github.io/netron/?gist=0dcb41b9fb3e0c5906ed369793f8db41)|6 ms|150 ms
+MobileNet-YOLOv3-Lite|76.3|416|[caffemodel](models/yolov3)|[graph](http://lutzroeder.github.io/netron/?gist=0dcb41b9fb3e0c5906ed369793f8db41)|11 ms|280 ms
 
 * the [benchmark](/benchmark) of cpu performance on Tencent/ncnn  framework
 * the deploy model was made by [merge_bn.py](https://github.com/chuanqi305/MobileNet-SSD/blob/master/merge_bn.py) , or you can try my custom [version](examples/merge_bn/)
