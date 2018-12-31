@@ -99,73 +99,11 @@ layer {
   bottom: "conv1"
   top: "conv1"
 }
-layer {
-  name: "conv2_1/expand"
-  type: "Convolution"
-  bottom: "conv1"
-  top: "conv2_1/expand"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  convolution_param {
-    num_output: 32
-    bias_term: false
-    kernel_size: 1
-    weight_filler {
-      type: "msra"
-    }
-  }
-}
-layer {
-  name: "conv2_1/expand/bn"
-  type: "BatchNorm"
-  bottom: "conv2_1/expand"
-  top: "conv2_1/expand"
-  param {
-    lr_mult: 0
-    decay_mult: 0
-  }
-  param {
-    lr_mult: 0
-    decay_mult: 0
-  }
-  param {
-    lr_mult: 0
-    decay_mult: 0
-  }
-  batch_norm_param {
-    
-    eps: 1e-5
-  }
-}
-layer {
-  name: "conv2_1/expand/scale"
-  type: "Scale"
-  bottom: "conv2_1/expand"
-  top: "conv2_1/expand"
-  param {
-    lr_mult: 1
-    decay_mult: 0
-  }
-  param {
-    lr_mult: 1
-    decay_mult: 0
-  }
-  scale_param {
-    bias_term: true
-  }
-}
-layer {
-  name: "relu2_1/expand"
-  type: "ReLU"
-  bottom: "conv2_1/expand"
-  top: "conv2_1/expand"
-}
+
 layer {
   name: "conv2_1/dwise"
   type: "DepthwiseConvolution"
-  bottom: "conv2_1/expand"
+  bottom: "conv1"
   top: "conv2_1/dwise"
   param {
     lr_mult: 1
@@ -1316,6 +1254,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 192
+    stride: 2
     weight_filler {
       type: "msra"
     }
@@ -2081,7 +2020,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 384
-    stride: 2
+    stride: 1
     weight_filler {
       type: "msra"
     }
@@ -4136,18 +4075,18 @@ layer {
 layer {
   name: "conv20/dw"
   type: "DepthwiseConvolution"
-  bottom: "block_4_6"
+  bottom: "block_4_2"
   top: "conv20/dw"
   param {
     lr_mult: 1
     decay_mult: 1
   }
   convolution_param {
-    num_output: 64
+    num_output: 32
     bias_term: false
     pad: 1
     kernel_size: 3
-    group: 64
+    group: 32
     engine: CAFFE
     weight_filler {
       type: "msra"
