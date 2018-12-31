@@ -127,7 +127,7 @@ layer {
   
   data_param {
     source: "examples/coco/coco_train_lmdb"
-    batch_size: 3
+    batch_size: 4
     backend: LMDB
   }
   annotated_data_param {
