@@ -69,7 +69,7 @@ layer {
   convolution_param {
     num_output: 32
     bias_term: false
-    pad: 2
+    pad: 1
     kernel_size: 3
     stride: 2
     weight_filler {
@@ -78,42 +78,11 @@ layer {
   }
 }
  
-layer {
-  name: "conv1/sliced1"
-  type: "Slice"
-  bottom: "conv1"
-  top: "conv1/margin1"
-  top: "conv1/sliced1"
-  slice_param {
-    axis: 2
-    slice_point: 1
-  }
-}
-layer {
-  name: "conv1/sliced2"
-  type: "Slice"
-  bottom: "conv1/sliced1"
-  top: "conv1/margin2"
-  top: "conv1/sliced2"
-  slice_param {
-    axis: 3
-    slice_point: 1
-  }
-}
-layer {
-  name: "silence3"
-  type: "Silence"
-  bottom: "conv1/margin1"
-}
-layer {
-  name: "silence4"
-  type: "Silence"
-  bottom: "conv1/margin2"
-} 
+
 layer {
   name: "conv1/bn"
   type: "BatchNorm"
-  bottom: "conv1/sliced2"
+  bottom: "conv1"
   top: "conv1/bn"
   param {
     lr_mult: 0
@@ -360,7 +329,7 @@ layer {
   convolution_param {
     num_output: 96
     bias_term: false
-    pad: 2
+    pad: 1
     kernel_size: 3
     group: 96
     stride: 2
@@ -370,42 +339,11 @@ layer {
     engine: CAFFE
   }
 } 
-layer {
-  name: "conv2_2/dwise/sliced1"
-  type: "Slice"
-  bottom: "conv2_2/dwise"
-  top: "conv2_2/dwise/margin1"
-  top: "conv2_2/dwise/sliced1"
-  slice_param {
-    axis: 2
-    slice_point: 1
-  }
-}
-layer {
-  name: "conv2_2/dwise/sliced2"
-  type: "Slice"
-  bottom: "conv2_2/dwise/sliced1"
-  top: "conv2_2/dwise/margin2"
-  top: "conv2_2/dwise/sliced2"
-  slice_param {
-    axis: 3
-    slice_point: 1
-  }
-}
-layer {
-  name: "silence5"
-  type: "Silence"
-  bottom: "conv2_2/dwise/margin1"
-}
-layer {
-  name: "silence6"
-  type: "Silence"
-  bottom: "conv2_2/dwise/margin2"
-}
+
 layer {
   name: "conv2_2/dwise/bn"
   type: "BatchNorm"
-  bottom: "conv2_2/dwise/sliced2"
+  bottom: "conv2_2/dwise"
   top: "conv2_2/dwise/bn"
   param {
     lr_mult: 0
@@ -773,7 +711,7 @@ layer {
   convolution_param {
     num_output: 144
     bias_term: false
-    pad: 2
+    pad: 1
     kernel_size: 3
     group: 144
     stride: 2
@@ -784,41 +722,9 @@ layer {
   }
 }
 layer {
-  name: "conv3_2/dwise/sliced1"
-  type: "Slice"
-  bottom: "conv3_2/dwise"
-  top: "conv3_2/dwise/margin1"
-  top: "conv3_2/dwise/sliced1"
-  slice_param {
-    axis: 2
-    slice_point: 1
-  }
-}
-layer {
-  name: "conv3_2/dwise/sliced2"
-  type: "Slice"
-  bottom: "conv3_2/dwise/sliced1"
-  top: "conv3_2/dwise/margin2"
-  top: "conv3_2/dwise/sliced2"
-  slice_param {
-    axis: 3
-    slice_point: 1
-  }
-}
-layer {
-  name: "silence7"
-  type: "Silence"
-  bottom: "conv3_2/dwise/margin1"
-}
-layer {
-  name: "silence8"
-  type: "Silence"
-  bottom: "conv3_2/dwise/margin2"
-}
-layer {
   name: "conv3_2/dwise/bn"
   type: "BatchNorm"
-  bottom: "conv3_2/dwise/sliced2"
+  bottom: "conv3_2/dwise"
   top: "conv3_2/dwise/bn"
   param {
     lr_mult: 0
@@ -2149,7 +2055,7 @@ layer {
   convolution_param {
     num_output: 384
     bias_term: false
-    pad: 2
+    pad: 1
     kernel_size: 3
     group: 384
     stride: 2
@@ -2160,41 +2066,9 @@ layer {
   }
 }
 layer {
-  name: "conv4_7/dwise/sliced1"
-  type: "Slice"
-  bottom: "conv4_7/dwise"
-  top: "conv4_7/dwise/margin1"
-  top: "conv4_7/dwise/sliced1"
-  slice_param {
-    axis: 2
-    slice_point: 1
-  }
-}
-layer {
-  name: "conv4_7/dwise/sliced2"
-  type: "Slice"
-  bottom: "conv4_7/dwise/sliced1"
-  top: "conv4_7/dwise/margin2"
-  top: "conv4_7/dwise/sliced2"
-  slice_param {
-    axis: 3
-    slice_point: 1
-  }
-}
-layer {
-  name: "silence9"
-  type: "Silence"
-  bottom: "conv4_7/dwise/margin1"
-}
-layer {
-  name: "silence10"
-  type: "Silence"
-  bottom: "conv4_7/dwise/margin2"
-}
-layer {
   name: "conv4_7/dwise/bn"
   type: "BatchNorm"
-  bottom: "conv4_7/dwise/sliced2"
+  bottom: "conv4_7/dwise"
   top: "conv4_7/dwise/bn"
   param {
     lr_mult: 0
@@ -2756,7 +2630,7 @@ layer {
   convolution_param {
     num_output: 576
     bias_term: false
-    pad: 2
+    pad: 1
     kernel_size: 3
     group: 576
     stride: 2
@@ -2766,42 +2640,11 @@ layer {
     engine: CAFFE
   }
 }
-layer {
-  name: "conv5_3/dwise/sliced1"
-  type: "Slice"
-  bottom: "conv5_3/dwise"
-  top: "conv5_3/dwise/margin1"
-  top: "conv5_3/dwise/sliced1"
-  slice_param {
-    axis: 2
-    slice_point: 1
-  }
-}
-layer {
-  name: "conv5_3/dwise/sliced2"
-  type: "Slice"
-  bottom: "conv5_3/dwise/sliced1"
-  top: "conv5_3/dwise/margin2"
-  top: "conv5_3/dwise/sliced2"
-  slice_param {
-    axis: 3
-    slice_point: 1
-  }
-}
-layer {
-  name: "silence1"
-  type: "Silence"
-  bottom: "conv5_3/dwise/margin1"
-}
-layer {
-  name: "silence2"
-  type: "Silence"
-  bottom: "conv5_3/dwise/margin2"
-}
+
 layer {
   name: "conv5_3/dwise/bn"
   type: "BatchNorm"
-  bottom: "conv5_3/dwise/sliced2"
+  bottom: "conv5_3/dwise"
   top: "conv5_3/dwise/bn"
   param {
     lr_mult: 0
