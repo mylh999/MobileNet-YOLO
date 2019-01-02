@@ -3125,7 +3125,7 @@ layer {
   top: "det_loss3"
   loss_weight: 1
   yolov3_param {
-    side: 26
+    side: 52
     num_class: 80
     num: 3  
     object_scale: 5.0

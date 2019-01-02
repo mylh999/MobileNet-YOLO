@@ -73,7 +73,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -102,7 +102,7 @@ layer {
 
 layer {
   name: "conv2_1/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv1"
   top: "conv2_1/dwise"
   param {
@@ -113,6 +113,7 @@ layer {
     num_output: 32
     bias_term: false
     pad: 1
+	stride : 1
     kernel_size: 3
     group: 32
     weight_filler {
@@ -140,7 +141,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -203,7 +204,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -260,7 +261,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -288,7 +289,7 @@ layer {
 }
 layer {
   name: "conv2_2/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv2_2/expand"
   top: "conv2_2/dwise"
   param {
@@ -327,7 +328,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -390,7 +391,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -447,7 +448,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -475,7 +476,7 @@ layer {
 }
 layer {
   name: "conv3_1/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv3_1/expand"
   top: "conv3_1/dwise"
   param {
@@ -486,6 +487,7 @@ layer {
     num_output: 144
     bias_term: false
     pad: 1
+	stride : 1
     kernel_size: 3
     group: 144
     weight_filler {
@@ -513,7 +515,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -576,7 +578,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -640,7 +642,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -668,7 +670,7 @@ layer {
 }
 layer {
   name: "conv3_2/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv3_2/expand"
   top: "conv3_2/dwise"
   param {
@@ -707,7 +709,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -770,7 +772,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -827,7 +829,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -855,7 +857,7 @@ layer {
 }
 layer {
   name: "conv4_1/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv4_1/expand"
   top: "conv4_1/dwise"
   param {
@@ -867,6 +869,7 @@ layer {
     bias_term: false
     pad: 1
     kernel_size: 3
+	stride : 1
     group: 192
     weight_filler {
       type: "msra"
@@ -893,7 +896,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -956,7 +959,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1020,7 +1023,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1048,7 +1051,7 @@ layer {
 }
 layer {
   name: "conv4_2/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv4_2/expand"
   top: "conv4_2/dwise"
   param {
@@ -1060,6 +1063,7 @@ layer {
     bias_term: false
     pad: 1
     kernel_size: 3
+	stride : 1
     group: 192
     weight_filler {
       type: "msra"
@@ -1086,7 +1090,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1149,7 +1153,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1213,7 +1217,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1241,7 +1245,7 @@ layer {
 }
 layer {
   name: "conv4_3/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv4_3/expand"
   top: "conv4_3/dwise"
   param {
@@ -1280,7 +1284,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1343,7 +1347,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1400,7 +1404,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1428,7 +1432,7 @@ layer {
 }
 layer {
   name: "conv4_4/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv4_4/expand"
   top: "conv4_4/dwise"
   param {
@@ -1441,6 +1445,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 384
+	stride : 1
     weight_filler {
       type: "msra"
     }
@@ -1466,7 +1471,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1529,7 +1534,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1593,7 +1598,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1621,7 +1626,7 @@ layer {
 }
 layer {
   name: "conv4_5/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv4_5/expand"
   top: "conv4_5/dwise"
   param {
@@ -1634,6 +1639,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 384
+	stride : 1
     weight_filler {
       type: "msra"
     }
@@ -1659,7 +1665,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1722,7 +1728,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1786,7 +1792,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1814,7 +1820,7 @@ layer {
 }
 layer {
   name: "conv4_6/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv4_6/expand"
   top: "conv4_6/dwise"
   param {
@@ -1827,6 +1833,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 384
+	stride : 1
     weight_filler {
       type: "msra"
     }
@@ -1852,7 +1859,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1915,7 +1922,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -1979,7 +1986,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2007,7 +2014,7 @@ layer {
 }
 layer {
   name: "conv4_7/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv4_7/expand"
   top: "conv4_7/dwise"
   param {
@@ -2046,7 +2053,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2109,7 +2116,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2166,7 +2173,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2194,7 +2201,7 @@ layer {
 }
 layer {
   name: "conv5_1/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv5_1/expand"
   top: "conv5_1/dwise"
   param {
@@ -2207,6 +2214,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 576
+	stride : 1
     weight_filler {
       type: "msra"
     }
@@ -2232,7 +2240,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2295,7 +2303,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2359,7 +2367,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2387,7 +2395,7 @@ layer {
 }
 layer {
   name: "conv5_2/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv5_2/expand"
   top: "conv5_2/dwise"
   param {
@@ -2400,6 +2408,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 576
+	stride : 1
     weight_filler {
       type: "msra"
     }
@@ -2425,7 +2434,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2488,7 +2497,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2552,7 +2561,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2580,7 +2589,7 @@ layer {
 }
 layer {
   name: "conv5_3/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv5_3/expand"
   top: "conv5_3/dwise"
   param {
@@ -2619,7 +2628,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2682,7 +2691,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2739,7 +2748,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2767,7 +2776,7 @@ layer {
 }
 layer {
   name: "conv6_1/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv6_1/expand"
   top: "conv6_1/dwise"
   param {
@@ -2780,6 +2789,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 960
+	stride : 1
     weight_filler {
       type: "msra"
     }
@@ -2805,7 +2815,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2868,7 +2878,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2932,7 +2942,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -2960,7 +2970,7 @@ layer {
 }
 layer {
   name: "conv6_2/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv6_2/expand"
   top: "conv6_2/dwise"
   param {
@@ -2971,6 +2981,7 @@ layer {
     num_output: 960
     bias_term: false
     pad: 1
+	stride : 1
     kernel_size: 3
     group: 960
     weight_filler {
@@ -2998,7 +3009,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -3061,7 +3072,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -3125,7 +3136,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -3153,7 +3164,7 @@ layer {
 }
 layer {
   name: "conv6_3/dwise"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv6_3/expand"
   top: "conv6_3/dwise"
   param {
@@ -3164,6 +3175,7 @@ layer {
     num_output: 960
     bias_term: false
     pad: 1
+	stride : 1
     kernel_size: 3
     group: 960
     weight_filler {
@@ -3191,7 +3203,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -3254,7 +3266,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -3311,7 +3323,7 @@ layer {
   }
   batch_norm_param {
     
-    eps: 1e-5
+    eps: 0.001
   }
 }
 layer {
@@ -3340,7 +3352,7 @@ layer {
 
 layer {
   name: "conv15/dw"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv6_4"
   top: "conv15/dw"
   param {
@@ -3353,6 +3365,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 1280
+	stride : 1
     engine: CAFFE
     weight_filler {
       type: "msra"
@@ -3375,6 +3388,10 @@ layer {
   param {
     lr_mult: 0
     decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
   }
 }
 layer {
@@ -3441,6 +3458,10 @@ layer {
     lr_mult: 0
     decay_mult: 0
   }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
 }
 layer {
   name: "conv15/scale"
@@ -3502,7 +3523,7 @@ layer {
 }
 layer {
   name: "conv16/dw"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "maxpool"
   top: "conv16/dw"
   param {
@@ -3514,6 +3535,7 @@ layer {
     bias_term: false
     pad: 1
     kernel_size: 3
+	stride : 1
     group: 640
     engine: CAFFE
     weight_filler {
@@ -3537,6 +3559,10 @@ layer {
   param {
     lr_mult: 0
     decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
   }
 }
 layer {
@@ -3603,6 +3629,10 @@ layer {
     lr_mult: 0
     decay_mult: 0
   }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
 }
 layer {
   name: "conv16/scale"
@@ -3635,7 +3665,7 @@ layer {
 }
 layer {
   name: "conv17/dw"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "block_5_2"
   top: "conv17/dw"
   param {
@@ -3647,6 +3677,7 @@ layer {
     bias_term: false
     pad: 1
     kernel_size: 3
+	stride : 1
     group: 96
     engine: CAFFE
     weight_filler {
@@ -3670,6 +3701,10 @@ layer {
   param {
     lr_mult: 0
     decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
   }
 }
 layer {
@@ -3736,6 +3771,10 @@ layer {
     lr_mult: 0
     decay_mult: 0
   }
+  batch_norm_param {
+    
+    eps: 0.001
+  }  
 }
 layer {
   name: "conv17/scale"
@@ -3776,7 +3815,7 @@ layer {
 
 layer {
   name: "conv18/dw"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv17/sum"
   top: "conv18/dw"
   param {
@@ -3788,6 +3827,7 @@ layer {
     bias_term: false
     pad: 1
     kernel_size: 3
+	stride : 1
     group: 640
     engine: CAFFE
     weight_filler {
@@ -3811,6 +3851,10 @@ layer {
   param {
     lr_mult: 0
     decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
   }
 }
 layer {
@@ -3877,6 +3921,10 @@ layer {
     lr_mult: 0
     decay_mult: 0
   }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
 }
 layer {
   name: "conv18/scale"
@@ -3941,7 +3989,7 @@ layer {
 }
 layer {
   name: "conv19/dw"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "maxpool2"
   top: "conv19/dw"
   param {
@@ -3952,6 +4000,7 @@ layer {
     num_output: 320
     bias_term: false
     pad: 1
+	stride : 1
     kernel_size: 3
     group: 320
     engine: CAFFE
@@ -3976,6 +4025,10 @@ layer {
   param {
     lr_mult: 0
     decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
   }
 }
 layer {
@@ -4042,6 +4095,10 @@ layer {
     lr_mult: 0
     decay_mult: 0
   }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
 }
 layer {
   name: "conv19/scale"
@@ -4074,7 +4131,7 @@ layer {
 }
 layer {
   name: "conv20/dw"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "block_4_2"
   top: "conv20/dw"
   param {
@@ -4087,6 +4144,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 32
+	stride : 1
     engine: CAFFE
     weight_filler {
       type: "msra"
@@ -4109,6 +4167,10 @@ layer {
   param {
     lr_mult: 0
     decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
   }
 }
 layer {
@@ -4175,6 +4237,10 @@ layer {
     lr_mult: 0
     decay_mult: 0
   }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
 }
 layer {
   name: "conv20/scale"
@@ -4214,7 +4280,7 @@ layer {
 }
 layer {
   name: "conv21/dw"
-  type: "DepthwiseConvolution"
+  type: "ConvolutionDepthwise"
   bottom: "conv20/sum"
   top: "conv21/dw"
   param {
@@ -4227,6 +4293,7 @@ layer {
     pad: 1
     kernel_size: 3
     group: 320
+	stride : 1
     engine: CAFFE
     weight_filler {
       type: "msra"
@@ -4249,6 +4316,10 @@ layer {
   param {
     lr_mult: 0
     decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
   }
 }
 layer {
@@ -4314,6 +4385,10 @@ layer {
   param {
     lr_mult: 0
     decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
   }
 }
 layer {
