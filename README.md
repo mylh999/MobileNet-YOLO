@@ -4,7 +4,7 @@
 
 A caffe implementation of MobileNet-YOLO detection network , first train on COCO trainval35k then fine-tune on 07+12 , test on VOC2007
 
-Current I can not get good accuracy , But I will keep these models on the git.
+Currently , I can not get good accuracy , but I will keep these models on the git.
 
 ## Windows Version
 
