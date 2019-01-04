@@ -168,9 +168,72 @@ layer {
   top: "conv2_1/dwise"
 }
 layer {
-  name: "conv2_1/linear"
+  name: "conv2_1/pwise"
   type: "Convolution"
   bottom: "conv2_1/dwise"
+  top: "conv2_1/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 32
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv2_1/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv2_1/pwise"
+  top: "conv2_1/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv2_1/pwise/scale"
+  type: "Scale"
+  bottom: "conv2_1/pwise"
+  top: "conv2_1/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv2_1/pwise"
+  type: "ReLU"
+  bottom: "conv2_1/pwise"
+  top: "conv2_1/pwise"
+}
+layer {
+  name: "conv2_1/linear"
+  type: "Convolution"
+  bottom: "conv2_1/pwise"
   top: "conv2_1/linear"
   param {
     lr_mult: 1
@@ -355,9 +418,72 @@ layer {
   top: "conv2_2/dwise"
 }
 layer {
-  name: "conv2_2/linear"
+  name: "conv2_2/pwise"
   type: "Convolution"
   bottom: "conv2_2/dwise"
+  top: "conv2_2/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 96
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv2_2/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv2_2/pwise"
+  top: "conv2_2/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv2_2/pwise/scale"
+  type: "Scale"
+  bottom: "conv2_2/pwise"
+  top: "conv2_2/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "relu2_2/pwise"
+  type: "ReLU"
+  bottom: "conv2_2/pwise"
+  top: "conv2_2/pwise"
+}
+layer {
+  name: "conv2_2/linear"
+  type: "Convolution"
+  bottom: "conv2_2/pwise"
   top: "conv2_2/linear"
   param {
     lr_mult: 1
@@ -542,9 +668,72 @@ layer {
   top: "conv3_1/dwise"
 }
 layer {
-  name: "conv3_1/linear"
+  name: "conv3_1/pwise"
   type: "Convolution"
   bottom: "conv3_1/dwise"
+  top: "conv3_1/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 144
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv3_1/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv3_1/pwise"
+  top: "conv3_1/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv3_1/pwise/scale"
+  type: "Scale"
+  bottom: "conv3_1/pwise"
+  top: "conv3_1/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv3_1/pwise"
+  type: "ReLU"
+  bottom: "conv3_1/pwise"
+  top: "conv3_1/pwise"
+}
+layer {
+  name: "conv3_1/linear"
+  type: "Convolution"
+  bottom: "conv3_1/pwise"
   top: "conv3_1/linear"
   param {
     lr_mult: 1
@@ -736,9 +925,72 @@ layer {
   top: "conv3_2/dwise"
 }
 layer {
-  name: "conv3_2/linear"
+  name: "conv3_2/pwise"
   type: "Convolution"
   bottom: "conv3_2/dwise"
+  top: "conv3_2/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 144
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv3_2/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv3_2/pwise"
+  top: "conv3_2/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv3_2/pwise/scale"
+  type: "Scale"
+  bottom: "conv3_2/pwise"
+  top: "conv3_2/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv3_2/pwise"
+  type: "ReLU"
+  bottom: "conv3_2/pwise"
+  top: "conv3_2/pwise"
+}
+layer {
+  name: "conv3_2/linear"
+  type: "Convolution"
+  bottom: "conv3_2/pwise"
   top: "conv3_2/linear"
   param {
     lr_mult: 1
@@ -923,9 +1175,72 @@ layer {
   top: "conv4_1/dwise"
 }
 layer {
-  name: "conv4_1/linear"
+  name: "conv4_1/pwise"
   type: "Convolution"
   bottom: "conv4_1/dwise"
+  top: "conv4_1/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 192
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv4_1/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv4_1/pwise"
+  top: "conv4_1/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv4_1/pwise/scale"
+  type: "Scale"
+  bottom: "conv4_1/pwise"
+  top: "conv4_1/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv4_1/pwise"
+  type: "ReLU"
+  bottom: "conv4_1/pwise"
+  top: "conv4_1/pwise"
+}
+layer {
+  name: "conv4_1/linear"
+  type: "Convolution"
+  bottom: "conv4_1/pwise"
   top: "conv4_1/linear"
   param {
     lr_mult: 1
@@ -1117,9 +1432,72 @@ layer {
   top: "conv4_2/dwise"
 }
 layer {
-  name: "conv4_2/linear"
+  name: "conv4_2/pwise"
   type: "Convolution"
   bottom: "conv4_2/dwise"
+  top: "conv4_2/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 192
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv4_2/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv4_2/pwise"
+  top: "conv4_2/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv4_2/pwise/scale"
+  type: "Scale"
+  bottom: "conv4_2/pwise"
+  top: "conv4_2/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv4_2/pwise"
+  type: "ReLU"
+  bottom: "conv4_2/pwise"
+  top: "conv4_2/pwise"
+}
+layer {
+  name: "conv4_2/linear"
+  type: "Convolution"
+  bottom: "conv4_2/pwise"
   top: "conv4_2/linear"
   param {
     lr_mult: 1
@@ -1311,9 +1689,72 @@ layer {
   top: "conv4_3/dwise"
 }
 layer {
-  name: "conv4_3/linear"
+  name: "conv4_3/pwise"
   type: "Convolution"
   bottom: "conv4_3/dwise"
+  top: "conv4_3/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 192
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv4_3/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv4_3/pwise"
+  top: "conv4_3/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv4_3/pwise/scale"
+  type: "Scale"
+  bottom: "conv4_3/pwise"
+  top: "conv4_3/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv4_3/pwise"
+  type: "ReLU"
+  bottom: "conv4_3/pwise"
+  top: "conv4_3/pwise"
+}
+layer {
+  name: "conv4_3/linear"
+  type: "Convolution"
+  bottom: "conv4_3/pwise"
   top: "conv4_3/linear"
   param {
     lr_mult: 1
@@ -1498,9 +1939,72 @@ layer {
   top: "conv4_4/dwise"
 }
 layer {
-  name: "conv4_4/linear"
+  name: "conv4_4/pwise"
   type: "Convolution"
   bottom: "conv4_4/dwise"
+  top: "conv4_4/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 384
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv4_4/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv4_4/pwise"
+  top: "conv4_4/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv4_4/pwise/scale"
+  type: "Scale"
+  bottom: "conv4_4/pwise"
+  top: "conv4_4/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv4_4/pwise"
+  type: "ReLU"
+  bottom: "conv4_4/pwise"
+  top: "conv4_4/pwise"
+}
+layer {
+  name: "conv4_4/linear"
+  type: "Convolution"
+  bottom: "conv4_4/pwise"
   top: "conv4_4/linear"
   param {
     lr_mult: 1
@@ -1692,9 +2196,72 @@ layer {
   top: "conv4_5/dwise"
 }
 layer {
-  name: "conv4_5/linear"
+  name: "conv4_5/pwise"
   type: "Convolution"
   bottom: "conv4_5/dwise"
+  top: "conv4_5/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 384
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv4_5/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv4_5/pwise"
+  top: "conv4_5/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv4_5/pwise/scale"
+  type: "Scale"
+  bottom: "conv4_5/pwise"
+  top: "conv4_5/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv4_5/pwise"
+  type: "ReLU"
+  bottom: "conv4_5/pwise"
+  top: "conv4_5/pwise"
+}
+layer {
+  name: "conv4_5/linear"
+  type: "Convolution"
+  bottom: "conv4_5/pwise"
   top: "conv4_5/linear"
   param {
     lr_mult: 1
@@ -1886,9 +2453,72 @@ layer {
   top: "conv4_6/dwise"
 }
 layer {
-  name: "conv4_6/linear"
+  name: "conv4_6/pwise"
   type: "Convolution"
   bottom: "conv4_6/dwise"
+  top: "conv4_6/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 384
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv4_6/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv4_6/pwise"
+  top: "conv4_6/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv4_6/pwise/scale"
+  type: "Scale"
+  bottom: "conv4_6/pwise"
+  top: "conv4_6/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv4_6/pwise"
+  type: "ReLU"
+  bottom: "conv4_6/pwise"
+  top: "conv4_6/pwise"
+}
+layer {
+  name: "conv4_6/linear"
+  type: "Convolution"
+  bottom: "conv4_6/pwise"
   top: "conv4_6/linear"
   param {
     lr_mult: 1
@@ -2080,9 +2710,72 @@ layer {
   top: "conv4_7/dwise"
 }
 layer {
-  name: "conv4_7/linear"
+  name: "conv4_7/pwise"
   type: "Convolution"
   bottom: "conv4_7/dwise"
+  top: "conv4_7/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 384
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv4_7/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv4_7/pwise"
+  top: "conv4_7/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv4_7/pwise/scale"
+  type: "Scale"
+  bottom: "conv4_7/pwise"
+  top: "conv4_7/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv4_7/pwise"
+  type: "ReLU"
+  bottom: "conv4_7/pwise"
+  top: "conv4_7/pwise"
+}
+layer {
+  name: "conv4_7/linear"
+  type: "Convolution"
+  bottom: "conv4_7/pwise"
   top: "conv4_7/linear"
   param {
     lr_mult: 1
@@ -2267,9 +2960,72 @@ layer {
   top: "conv5_1/dwise"
 }
 layer {
-  name: "conv5_1/linear"
+  name: "conv5_1/pwise"
   type: "Convolution"
   bottom: "conv5_1/dwise"
+  top: "conv5_1/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 576
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv5_1/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv5_1/pwise"
+  top: "conv5_1/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv5_1/pwise/scale"
+  type: "Scale"
+  bottom: "conv5_1/pwise"
+  top: "conv5_1/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv5_1/pwise"
+  type: "ReLU"
+  bottom: "conv5_1/pwise"
+  top: "conv5_1/pwise"
+}
+layer {
+  name: "conv5_1/linear"
+  type: "Convolution"
+  bottom: "conv5_1/pwise"
   top: "conv5_1/linear"
   param {
     lr_mult: 1
@@ -2461,9 +3217,72 @@ layer {
   top: "conv5_2/dwise"
 }
 layer {
-  name: "conv5_2/linear"
+  name: "conv5_2/pwise"
   type: "Convolution"
   bottom: "conv5_2/dwise"
+  top: "conv5_2/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 576
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv5_2/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv5_2/pwise"
+  top: "conv5_2/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv5_2/pwise/scale"
+  type: "Scale"
+  bottom: "conv5_2/pwise"
+  top: "conv5_2/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv5_2/pwise"
+  type: "ReLU"
+  bottom: "conv5_2/pwise"
+  top: "conv5_2/pwise"
+}
+layer {
+  name: "conv5_2/linear"
+  type: "Convolution"
+  bottom: "conv5_2/pwise"
   top: "conv5_2/linear"
   param {
     lr_mult: 1
@@ -2655,9 +3474,72 @@ layer {
   top: "conv5_3/dwise"
 }
 layer {
-  name: "conv5_3/linear"
+  name: "conv5_3/pwise"
   type: "Convolution"
   bottom: "conv5_3/dwise"
+  top: "conv5_3/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 576
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv5_3/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv5_3/pwise"
+  top: "conv5_3/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv5_3/pwise/scale"
+  type: "Scale"
+  bottom: "conv5_3/pwise"
+  top: "conv5_3/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv5_3/pwise"
+  type: "ReLU"
+  bottom: "conv5_3/pwise"
+  top: "conv5_3/pwise"
+}
+layer {
+  name: "conv5_3/linear"
+  type: "Convolution"
+  bottom: "conv5_3/pwise"
   top: "conv5_3/linear"
   param {
     lr_mult: 1
@@ -2842,9 +3724,72 @@ layer {
   top: "conv6_1/dwise"
 }
 layer {
-  name: "conv6_1/linear"
+  name: "conv6_1/pwise"
   type: "Convolution"
   bottom: "conv6_1/dwise"
+  top: "conv6_1/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 960
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv6_1/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv6_1/pwise"
+  top: "conv6_1/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv6_1/pwise/scale"
+  type: "Scale"
+  bottom: "conv6_1/pwise"
+  top: "conv6_1/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv6_1/pwise"
+  type: "ReLU"
+  bottom: "conv6_1/pwise"
+  top: "conv6_1/pwise"
+}
+layer {
+  name: "conv6_1/linear"
+  type: "Convolution"
+  bottom: "conv6_1/pwise"
   top: "conv6_1/linear"
   param {
     lr_mult: 1
@@ -3036,9 +3981,72 @@ layer {
   top: "conv6_2/dwise"
 }
 layer {
-  name: "conv6_2/linear"
+  name: "conv6_2/pwise"
   type: "Convolution"
   bottom: "conv6_2/dwise"
+  top: "conv6_2/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 960
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv6_2/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv6_2/pwise"
+  top: "conv6_2/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv6_2/pwise/scale"
+  type: "Scale"
+  bottom: "conv6_2/pwise"
+  top: "conv6_2/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv6_2/pwise"
+  type: "ReLU"
+  bottom: "conv6_2/pwise"
+  top: "conv6_2/pwise"
+}
+layer {
+  name: "conv6_2/linear"
+  type: "Convolution"
+  bottom: "conv6_2/pwise"
   top: "conv6_2/linear"
   param {
     lr_mult: 1
@@ -3230,9 +4238,72 @@ layer {
   top: "conv6_3/dwise"
 }
 layer {
-  name: "conv6_3/linear"
+  name: "conv6_3/pwise"
   type: "Convolution"
   bottom: "conv6_3/dwise"
+  top: "conv6_3/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 960
+    bias_term: false
+    kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+  }
+}
+layer {
+  name: "conv6_3/pwise/bn"
+  type: "BatchNorm"
+  bottom: "conv6_3/pwise"
+  top: "conv6_3/pwise"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  batch_norm_param {
+    
+    eps: 0.001
+  }
+}
+layer {
+  name: "conv6_3/pwise/scale"
+  type: "Scale"
+  bottom: "conv6_3/pwise"
+  top: "conv6_3/pwise"
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 0
+  }
+  scale_param {
+    bias_term: true
+  }
+}
+layer {
+  name: "conv6_3/pwise"
+  type: "ReLU"
+  bottom: "conv6_3/pwise"
+  top: "conv6_3/pwise"
+}
+layer {
+  name: "conv6_3/linear"
+  type: "Convolution"
+  bottom: "conv6_3/pwise"
   top: "conv6_3/linear"
   param {
     lr_mult: 1
