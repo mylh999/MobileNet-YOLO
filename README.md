@@ -1,6 +1,6 @@
-# MobileNet-YOLO Caffe
+# MobileNetv2-YOLO Caffe
 
-## MobileNet-YOLO 
+## MobileNetv2-YOLO 
 
 A caffe implementation of MobileNet-YOLO detection network , first train on COCO trainval35k then fine-tune on 07+12 , test on VOC2007
 
