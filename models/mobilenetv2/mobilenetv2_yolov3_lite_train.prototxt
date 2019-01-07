@@ -48,12 +48,93 @@ layer {
   
   data_param {
     source: "examples/VOC0712/VOC0712_trainval_lmdb"
-    batch_size: 7
+    batch_size: 6
     backend: LMDB
   }
   annotated_data_param {
 	yolo_data_type : 1
-	yolo_data_jitter : 0.3
+    batch_sampler {
+      max_sample: 1
+      max_trials: 1
+    }
+    batch_sampler {
+      sampler {
+        min_scale: 0.3
+        max_scale: 1.0
+        min_aspect_ratio: 0.5
+        max_aspect_ratio: 2.0
+      }
+      sample_constraint {
+        min_jaccard_overlap: 0.1
+      }
+      max_sample: 1
+      max_trials: 50
+    }
+    batch_sampler {
+      sampler {
+        min_scale: 0.3
+        max_scale: 1.0
+        min_aspect_ratio: 0.5
+        max_aspect_ratio: 2.0
+      }
+      sample_constraint {
+        min_jaccard_overlap: 0.3
+      }
+      max_sample: 1
+      max_trials: 50
+    }
+    batch_sampler {
+      sampler {
+        min_scale: 0.3
+        max_scale: 1.0
+        min_aspect_ratio: 0.5
+        max_aspect_ratio: 2.0
+      }
+      sample_constraint {
+        min_jaccard_overlap: 0.5
+      }
+      max_sample: 1
+      max_trials: 50
+    }
+    batch_sampler {
+      sampler {
+        min_scale: 0.3
+        max_scale: 1.0
+        min_aspect_ratio: 0.5
+        max_aspect_ratio: 2.0
+      }
+      sample_constraint {
+        min_jaccard_overlap: 0.7
+      }
+      max_sample: 1
+      max_trials: 50
+    }
+    batch_sampler {
+      sampler {
+        min_scale: 0.3
+        max_scale: 1.0
+        min_aspect_ratio: 0.5
+        max_aspect_ratio: 2.0
+      }
+      sample_constraint {
+        min_jaccard_overlap: 0.9
+      }
+      max_sample: 1
+      max_trials: 50
+    }
+    batch_sampler {
+      sampler {
+        min_scale: 0.3
+        max_scale: 1.0
+        min_aspect_ratio: 0.5
+        max_aspect_ratio: 2.0
+      }
+      sample_constraint {
+        max_jaccard_overlap: 1.0
+      }
+      max_sample: 1
+      max_trials: 50
+    }
     label_map_file:  "data/coco/labelmap_coco.prototxt"
   }
 }
@@ -248,7 +329,7 @@ layer {
   }
 }
 layer {
-  name: "conv2_1/pwise"
+  name: "conv2_1/pwise/relu"
   type: "ReLU"
   bottom: "conv2_1/pwise"
   top: "conv2_1/pwise"
@@ -748,7 +829,7 @@ layer {
   }
 }
 layer {
-  name: "conv3_1/pwise"
+  name: "conv3_1/pwise/relu"
   type: "ReLU"
   bottom: "conv3_1/pwise"
   top: "conv3_1/pwise"
@@ -1005,7 +1086,7 @@ layer {
   }
 }
 layer {
-  name: "conv3_2/pwise"
+  name: "conv3_2/pwise/relu"
   type: "ReLU"
   bottom: "conv3_2/pwise"
   top: "conv3_2/pwise"
@@ -1255,7 +1336,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_1/pwise"
+  name: "conv4_1/pwise/relu"
   type: "ReLU"
   bottom: "conv4_1/pwise"
   top: "conv4_1/pwise"
@@ -1512,7 +1593,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_2/pwise"
+  name: "conv4_2/pwise/relu"
   type: "ReLU"
   bottom: "conv4_2/pwise"
   top: "conv4_2/pwise"
@@ -1769,7 +1850,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_3/pwise"
+  name: "conv4_3/pwise/relu"
   type: "ReLU"
   bottom: "conv4_3/pwise"
   top: "conv4_3/pwise"
@@ -2019,7 +2100,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_4/pwise"
+  name: "conv4_4/pwise/relu"
   type: "ReLU"
   bottom: "conv4_4/pwise"
   top: "conv4_4/pwise"
@@ -2276,7 +2357,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_5/pwise"
+  name: "conv4_5/pwise/relu"
   type: "ReLU"
   bottom: "conv4_5/pwise"
   top: "conv4_5/pwise"
@@ -2533,7 +2614,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_6/pwise"
+  name: "conv4_6/pwise/relu"
   type: "ReLU"
   bottom: "conv4_6/pwise"
   top: "conv4_6/pwise"
@@ -2790,7 +2871,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_7/pwise"
+  name: "conv4_7/pwise/relu"
   type: "ReLU"
   bottom: "conv4_7/pwise"
   top: "conv4_7/pwise"
@@ -3040,7 +3121,7 @@ layer {
   }
 }
 layer {
-  name: "conv5_1/pwise"
+  name: "conv5_1/pwise/relu"
   type: "ReLU"
   bottom: "conv5_1/pwise"
   top: "conv5_1/pwise"
@@ -3297,7 +3378,7 @@ layer {
   }
 }
 layer {
-  name: "conv5_2/pwise"
+  name: "conv5_2/pwise/relu"
   type: "ReLU"
   bottom: "conv5_2/pwise"
   top: "conv5_2/pwise"
@@ -3554,7 +3635,7 @@ layer {
   }
 }
 layer {
-  name: "conv5_3/pwise"
+  name: "conv5_3/pwise/relu"
   type: "ReLU"
   bottom: "conv5_3/pwise"
   top: "conv5_3/pwise"
@@ -3804,7 +3885,7 @@ layer {
   }
 }
 layer {
-  name: "conv6_1/pwise"
+  name: "conv6_1/pwise/relu"
   type: "ReLU"
   bottom: "conv6_1/pwise"
   top: "conv6_1/pwise"
@@ -4061,7 +4142,7 @@ layer {
   }
 }
 layer {
-  name: "conv6_2/pwise"
+  name: "conv6_2/pwise/relu"
   type: "ReLU"
   bottom: "conv6_2/pwise"
   top: "conv6_2/pwise"
@@ -4318,7 +4399,7 @@ layer {
   }
 }
 layer {
-  name: "conv6_3/pwise"
+  name: "conv6_3/pwise/relu"
   type: "ReLU"
   bottom: "conv6_3/pwise"
   top: "conv6_3/pwise"

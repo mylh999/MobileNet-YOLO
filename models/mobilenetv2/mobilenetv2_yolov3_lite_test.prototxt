@@ -225,7 +225,7 @@ layer {
   }
 }
 layer {
-  name: "conv2_1/pwise"
+  name: "conv2_1/pwise/relu"
   type: "ReLU"
   bottom: "conv2_1/pwise"
   top: "conv2_1/pwise"
@@ -725,7 +725,7 @@ layer {
   }
 }
 layer {
-  name: "conv3_1/pwise"
+  name: "conv3_1/pwise/relu"
   type: "ReLU"
   bottom: "conv3_1/pwise"
   top: "conv3_1/pwise"
@@ -982,7 +982,7 @@ layer {
   }
 }
 layer {
-  name: "conv3_2/pwise"
+  name: "conv3_2/pwise/relu"
   type: "ReLU"
   bottom: "conv3_2/pwise"
   top: "conv3_2/pwise"
@@ -1232,7 +1232,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_1/pwise"
+  name: "conv4_1/pwise/relu"
   type: "ReLU"
   bottom: "conv4_1/pwise"
   top: "conv4_1/pwise"
@@ -1489,7 +1489,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_2/pwise"
+  name: "conv4_2/pwise/relu"
   type: "ReLU"
   bottom: "conv4_2/pwise"
   top: "conv4_2/pwise"
@@ -1746,7 +1746,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_3/pwise"
+  name: "conv4_3/pwise/relu"
   type: "ReLU"
   bottom: "conv4_3/pwise"
   top: "conv4_3/pwise"
@@ -1996,7 +1996,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_4/pwise"
+  name: "conv4_4/pwise/relu"
   type: "ReLU"
   bottom: "conv4_4/pwise"
   top: "conv4_4/pwise"
@@ -2253,7 +2253,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_5/pwise"
+  name: "conv4_5/pwise/relu"
   type: "ReLU"
   bottom: "conv4_5/pwise"
   top: "conv4_5/pwise"
@@ -2510,7 +2510,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_6/pwise"
+  name: "conv4_6/pwise/relu"
   type: "ReLU"
   bottom: "conv4_6/pwise"
   top: "conv4_6/pwise"
@@ -2767,7 +2767,7 @@ layer {
   }
 }
 layer {
-  name: "conv4_7/pwise"
+  name: "conv4_7/pwise/relu"
   type: "ReLU"
   bottom: "conv4_7/pwise"
   top: "conv4_7/pwise"
@@ -3017,7 +3017,7 @@ layer {
   }
 }
 layer {
-  name: "conv5_1/pwise"
+  name: "conv5_1/pwise/relu"
   type: "ReLU"
   bottom: "conv5_1/pwise"
   top: "conv5_1/pwise"
@@ -3274,7 +3274,7 @@ layer {
   }
 }
 layer {
-  name: "conv5_2/pwise"
+  name: "conv5_2/pwise/relu"
   type: "ReLU"
   bottom: "conv5_2/pwise"
   top: "conv5_2/pwise"
@@ -3531,7 +3531,7 @@ layer {
   }
 }
 layer {
-  name: "conv5_3/pwise"
+  name: "conv5_3/pwise/relu"
   type: "ReLU"
   bottom: "conv5_3/pwise"
   top: "conv5_3/pwise"
@@ -3781,7 +3781,7 @@ layer {
   }
 }
 layer {
-  name: "conv6_1/pwise"
+  name: "conv6_1/pwise/relu"
   type: "ReLU"
   bottom: "conv6_1/pwise"
   top: "conv6_1/pwise"
@@ -4038,7 +4038,7 @@ layer {
   }
 }
 layer {
-  name: "conv6_2/pwise"
+  name: "conv6_2/pwise/relu"
   type: "ReLU"
   bottom: "conv6_2/pwise"
   top: "conv6_2/pwise"
@@ -4295,7 +4295,7 @@ layer {
   }
 }
 layer {
-  name: "conv6_3/pwise"
+  name: "conv6_3/pwise/relu"
   type: "ReLU"
   bottom: "conv6_3/pwise"
   top: "conv6_3/pwise"
